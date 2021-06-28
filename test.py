@@ -1,10 +1,16 @@
 import pytest
 from Calculator import Calculator
+from Student import Student
 
 @pytest.fixture
 def calculator():
     cal = Calculator()
     return cal
+
+@pytest.fixture
+def student():
+    stu = Student("Santiago", "Martinez", 21, "Software Engineer")
+    return stu
 
 
 def test_sum(calculator):
@@ -22,5 +28,17 @@ def test_mul(calculator):
 def test_div(calculator):
     a,b = 9,3
     assert 3 == calculator.div(a,b)
+
+def test_getName(student):
+    assert "Santiago" == student.name
+
+def test_getLastName(student):
+    assert "Martinez" == student.lastName
+
+def test_getAge(student):
+    assert 21 == student.age
+
+def test_getCareer(student):
+    assert "Software Engineer" == student.career
 
     
