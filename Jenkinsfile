@@ -4,7 +4,7 @@ pipeline {
 		stage("test PythonEnv") {
 			steps{
 				sh 'pip install pytest'
-				sh 'pytest test.py'
+				sh 'python -m pytest test.py'
 			}
 		}
 	}
